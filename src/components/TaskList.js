@@ -58,7 +58,7 @@ const TaskList = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`${URL}api/tasks/delete/${id}`);
+      await axios.delete(`${URL}/api/tasks/delete/${id}`);
       getTasks();
     } catch (error) {
       toast.error(error.message);
@@ -84,7 +84,7 @@ const TaskList = () => {
       return toast.error("Input filed cannot be empty.");
     }
     try {
-      await axios.put(`${URL}api/tasks/update/${taskID}`, formData);
+      await axios.put(`${URL}/api/tasks/update/${taskID}`, formData);
       setFormData({ ...formData, name: "" });
       setIsEditing(false);
       getTasks();
@@ -99,7 +99,7 @@ const TaskList = () => {
       completed: true,
     };
     try {
-      await axios.put(`${URL}api/tasks/update/${task._id}`, newFormData);
+      await axios.put(`${URL}/api/tasks/update/${task._id}`, newFormData);
       getTasks();
     } catch (error) {
       toast.error(error.message);
